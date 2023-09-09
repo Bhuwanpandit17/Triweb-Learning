@@ -25,7 +25,7 @@ if (Fname==""){
 
 }else if (!isvalidEmail(Email)){
     console.log("email is not valid");
-    e.preventDefault();
+    //e.preventDefault();
 
 }if(Pnumber===0){
     console.log("Number is not valid");
@@ -45,31 +45,17 @@ if (Resume === "") {
         e.preventDefault();
         return;
     }
-
-
-
 }
 
-
-
-
-
-
-
-
-    function isValidNumber(number) {
+ function isValidNumber(number) {
     const numericRegex = /^[0-9]+$/; 
     return numericRegex.test(number) && number.length === 10; 
 }
-
-
 
 function isvalidEmail(email){
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(email);
 }
 
-
-
 let btn = document.getElementById('butn');
-btn.addEventListener('submit',btnListener);
+btn.addEventListener('click',btnListener);
