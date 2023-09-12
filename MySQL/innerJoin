@@ -1,0 +1,5 @@
+SELECT st.STUDENT_NAME , cl.class_name, t.teacher_name AS classTeacher
+
+FROM students st 
+INNER JOIN classes cl ON st.class_id = cl.id
+INNER JOIN teachers t ON cl.teacher_id = t.id;
