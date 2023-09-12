@@ -1,0 +1,23 @@
+C-create
+INSERT INTO teachers( mobile_number, teacher_name )VALUES('9866514011','Hari chauhan');
+
+R- Retrive
+SELECT * FROM `teachers` WHERE teacher_name ="Bhuwan pandit";
+SELECT * FROM `students` WHERE class_id = 2 AND id = 1;
+SELECT * FROM `students` WHERE class_id = 2 OR class_id = 3;
+SELECT * FROM `students` WHERE class_id IN(2,3);
+select student_name as Name of student , mobile_number as Mobile number from `students` where id = 1
+
+select with where
+select with AND
+select with OR
+select with IN
+how to change name of column while fetching the data
+
+U- Update
+update teacher SET mobile_number = "22222";
+
+D- Delete// it only delete record on table, it cannot reset the auto increment.
+
+DELETE from teachers;
+Truncate -  Truncate TABLE classes : It reset the tabel.

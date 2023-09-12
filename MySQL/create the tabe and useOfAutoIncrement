@@ -1,0 +1,5 @@
+CREATE TABLE teachers (
+id int(11) not null AUTO_INCREMENT PRIMARY KEY,
+ teacher_name varchar(255) not null,
+  mobile_number  varchar(100) not null
+);

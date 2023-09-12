@@ -1,0 +1,1 @@
+insert into teachers(teacher_name,subject,number,salary) values('bhuwan','C++','1234',50000)

@@ -1,0 +1,7 @@
+create table classes(
+id int(10) primary key not null auto_increment,
+class_name varchar(100) not null,
+teacher_id int(11) not null,
+foreign key(teacher_id) referances teacher(id)
+
+);
