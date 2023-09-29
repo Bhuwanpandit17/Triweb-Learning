@@ -39,7 +39,7 @@ A 3-month MERN internship program with below work.In this internship You can be 
 # How to Progress
 I have added different work during my internship in different folders. Particular folder name is related to the technology in which I have worked or practice.For eg- In HTML folder I putted all my work that I learn and practice HTML concepts. Move to the particular folder to access particular technology's stuff and concepts.
 # Folder name with Links to particular readme
-## [1 HTML](/Triweb-Learning/HTML/README.md): Normal Registration form with HTML.
+## [1 HTML](/Triweb-Learning/HTML/README.md):Registration form with HTML.
 ## [2 CSS](/Triweb-Learning/CSS/README.md): Simple CSS for Form and TimeTable.
 ## [3 ES6](/Triweb-Learning/ES6/README.md): Simple ES6 code with different functions.
 ## [4 JavaScript](/Triweb-Learning/JavaScript/README.md): Simple Javascript code with different functions.
