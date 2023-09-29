@@ -40,15 +40,15 @@ A 3-month MERN internship program with below work.In this internship You can be 
 I have added different work during my internship in different folders. Particular folder name is related to the technology in which I have worked or practice.For eg- In HTML folder I putted all my work that I learn and practice HTML concepts. Move to the particular folder to access particular technology's stuff and concepts.
 # Folder name with Links to particular readme
 ## [1 HTML](/HTML/README.md):Registration form with HTML.
-## [2 CSS](/Triweb-Learning/CSS/README.md): Simple CSS for Form and TimeTable.
-## [3 ES6](/Triweb-Learning/ES6/README.md): Simple ES6 code with different functions.
-## [4 JavaScript](/Triweb-Learning/JavaScript/README.md): Simple Javascript code with different functions.
-## [5 Project](/Triweb-Learning/Projects/README.md): Simple projects with its code.
-## [6 MYSQL](/Triweb-Learning/MYSQL/README.md): Simple MySQL commands.
+## [2 CSS](/CSS/README.md): Simple CSS for Form and TimeTable.
+## [3 ES6](/ES6/README.md): Simple ES6 code with different functions.
+## [4 JavaScript](/JavaScript/README.md): Simple Javascript code with different functions.
+## [5 Project](/Projects/README.md): Simple projects with its code.
+## [6 MYSQL](/MYSQL/README.md): Simple MySQL commands.
 ## [7 Nodejs](/Nodejs/README.md): Simple Nodejs file and its codes.
-## [8 NodejsII](/Triweb-Learning/NodejsII/README.md): Simple NodejsII file and its codes on python.
-## [9 MongoDB](/Triweb-Learning/MongoDB/README.md): Simple MongoDB file and codes.
-## [10 TypeScript](/Triweb-Learning/TypeScript/README.md): Simple Typescript file and codes.
+## [8 NodejsII](/NodejsII/README.md): Simple NodejsII file and its codes on python.
+## [9 MongoDB](/MongoDB/README.md): Simple MongoDB file and codes.
+## [10 TypeScript](/TypeScript/README.md): Simple Typescript file and codes.
 
 
 
