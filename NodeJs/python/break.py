@@ -1,8 +1,8 @@
 # break
 
-n=10
+n = 10
 for i in range(n):
-    if i==5:
+    if i == 5:
         print("Break")
-        break; 
-    print(i) 
+        break
+    print(i)
