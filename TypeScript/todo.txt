@@ -1,0 +1,10 @@
+1. setup project
+2. yarn --------- npm
+3. Nodejsexpress
+4. nodemon
+5. typescript
+6.multi layer- controller, model, routers
+
+7. Transplie, transplier, transcomplier
+8. configuration - environment variable
+9. 
