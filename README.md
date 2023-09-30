@@ -34,14 +34,14 @@ Find me on various platforms:
 
 <div align="left">
 
-  <a href="YOUR_INSTAGRAM_LINK">
+  <a href="https://www.instagram.com/">
     <img src="https://img.shields.io/static/v1?message=Instagram&logo=instagram&label=&color=E4405F&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="Instagram" />
   </a>
 
-  <a href="YOUR_GMAIL_LINK">
+  <a href="https://mail.google.com/mail/u/0/#inbox">
     <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="Gmail" />
   </a>
-  <a href="YOUR_LINKEDIN_LINK">
+  <a href="https://www.linkedin.com/in/bhuwan-pandit-7b7379227/">
     <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="LinkedIn" />
   </a>
 </div>
