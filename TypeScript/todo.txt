@@ -1,10 +1,20 @@
-1. setup project
-2. yarn --------- npm
-3. Nodejsexpress
-4. nodemon
-5. typescript
-6.multi layer- controller, model, routers
+ setup project
+ yarn --------- npm
+ Nodejs
+ express
+ nodemon
 
-7. Transplie, transplier, transcomplier
-8. configuration - environment variable
-9. 
+
+multi layer- controller, model, routers
+configuration - environment variable
+
+
+typescript
+install typescript
+tsc- typescript compiler
+move all source code file to src
+the extension of file is .ts
+ -- npm install --save-dev @types/node
+ --yarn add --dev @types/node
+moduleResolution:node
+Transplie, transplier, transcomplier
