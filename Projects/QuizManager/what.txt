@@ -1,0 +1,28 @@
+- yarn
+-express
+-typescript
+
+
+-what is REST, How, Why.?
+-//End Point
+
+mydome/user/
+----get: Give users detail
+
+mydome/user/<userid>
+---POST: req.data=>> create user
+
+mydome/user/
+---PUT: req.data==>update user details
+
+mydome/user
+---PATHC: req.data==> modify
+
+modify/user/<id>
+==>DELETE: Delete this user
+
+--> Request
+----> Code
+
+
+// Response

@@ -11,6 +11,7 @@ interface User{
     uname:string,
     password:string,
     age:number,
+    is_active:
 }
 
 const updateUserData = (objUser:User)=>{

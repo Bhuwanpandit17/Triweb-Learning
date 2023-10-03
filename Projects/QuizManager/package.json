@@ -1,0 +1,18 @@
+{
+  "name": "quizsapp",
+  "version": "1.0.0",
+  "description": "This is the rest API for QuizApp",
+  "main": "app.js",
+  "author": "Bhuwan Pandit",
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "^4.17.18",
+    "express": "^4.18.2",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "build":"npx tsc --noEmitOnError",
+    "start": "node ./dist/app.js"
+
+  }
+}
