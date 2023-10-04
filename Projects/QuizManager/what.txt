@@ -26,3 +26,22 @@ modify/user/<id>
 
 
 // Response
+
+--------------------------------------------------------
+
+-mongoDB (offline / online)
+   ---- aggregate
+   ---- insert:
+   
+-mongoose(oom)
+
+--NodeJS ->> mongoDB : connectionString
+--IP whiteListing
+--How to intract with mongoDB and precution
+--schema
+--> archtecture -> name, email, password
+
+--model
+->name:User:users
+
+
