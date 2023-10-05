@@ -7,8 +7,8 @@ interface ReturnResponse{
     message:string,
     data:{}
 }
-
-const registerUser = async(req:Request, res:Response, next:NextFunction) =>{
+ //Post 
+const registerUser = async(req:Request, res:Response) =>{
     let resp:ReturnResponse;
 try{
     const user = new User(req.body);
@@ -26,18 +26,18 @@ try{
     res.status(500).send(resp);
 }
 }
-
-const getUser = async(req:Request, res:Response) =>{
+// Get user
+const getUser =async (req: Request, res: Response) =>{
  let resp:ReturnResponse;
 
  try{
-    const userId = (req.params.userId);
-    const user = await User.findById(userId)
+    const userId= req.params.userId;
+    const user = await User.findById(userId,{name:1, email:2})
     if(!user){
         resp = {status:"error", message:"No user found", data:{}};
          res.send(resp)
     }else{
-         resp = {status:"success", message:"user found", data:{}};
+         resp = {status:"success", message:"user found", data:{user:user}};
         res.send(resp);
     }
 
@@ -45,8 +45,33 @@ const getUser = async(req:Request, res:Response) =>{
     resp = {status:"error", message:"Something went wrong", data:{}};
     res.status(500).send(resp);
 }
-}
+ }
+
+//Put
+
+ const updateUser = async (req: Request , res: Response) =>{
+   let resp:ReturnResponse;
+    try {
+            const userId = req.body._id;
+            const user = await User.findById(userId,{name:1});
+            //console.log(user);
+    if(!user){
+          
+            resp = {status:"error", message:"No user found", data:{}};
+            res.send(resp)
+
+    }else{  user.name = req.body.name;
+            await user.save();
+            resp ={status:"success", message:"user Updated", data:{user:user}};
+            res.send(resp); 
+            
+    }
+    } catch (error) {
+        resp = {status:"error", message:"Something went wrong", data:{}};
+        res.status(500).send(resp);
+    }
+
+  }
 
 
-    
-export{registerUser, getUser};
+export{registerUser, getUser, updateUser}

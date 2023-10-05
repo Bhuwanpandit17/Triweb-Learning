@@ -44,4 +44,27 @@ modify/user/<id>
 --model
 ->name:User:users
 
+================
+->Response - interface
+--response format fix
+-postion collection and saving examples
+-different routes for user module
+-dyanmic parameter values
+-req.body
+-req.params
+-req.query
+-async await
+-what is BSON
+-projection
+
+=================
+part -3
+- issue: regular build on development
+-ts-node install
+- yarn ts-node
+-REPL -link
+
+
+
+
 
