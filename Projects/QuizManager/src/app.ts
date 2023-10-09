@@ -5,8 +5,7 @@ import userRoute from './routes/user'
 //userRoute
 const app = express();
 
-const connectionString ="mongodb+srv://bhuwan:1234@cluster0.ea4vyn3.mongodb.net/workshopdb?retryWrites=true&w=majority"
-
+const connectionString = process.env.CONNECTION_STRING || "";
 
 app.use(express.json());
 

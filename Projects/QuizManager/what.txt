@@ -64,7 +64,11 @@ part -3
 - yarn ts-node
 -REPL -link
 
-
+=====================
+Nodemon
+-build effor reduced
+-server started automatically
+-juster execute node
 
 
 
