@@ -8,7 +8,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const user_1 = __importDefault(require("./routes/user"));
 //userRoute
 const app = (0, express_1.default)();
-const connectionString = "mongodb+srv://bhuwan:1234@cluster0.ea4vyn3.mongodb.net/workshopdb?retryWrites=true&w=majority";
+const connectionString = process.env.CONNECTION_STRING || "";
 app.use(express_1.default.json());
 // app.get('/',(req,res)=>{
 //     res.send("Hello how are you");

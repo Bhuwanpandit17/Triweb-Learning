@@ -69,6 +69,14 @@ Nodemon
 -build effor reduced
 -server started automatically
 -juster execute node
+==============================
+
+password : Encryption
+ec6 video: object key value;
+
+why not to encode base64 or some encryption which can decrypt
+bcrypt for encryption password
+
 
 
 

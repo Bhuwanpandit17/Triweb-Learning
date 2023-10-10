@@ -9,6 +9,8 @@ const user_1 = require("../controller/user");
 const router = express_1.default.Router();
 //POST/user/
 router.post('/', user_1.registerUser);
+//POST /User/Login
+router.post('/login', user_1.loginUser);
 //Get /user/:userId
 router.get('/:userId', user_1.getUser);
 //Put /user/
