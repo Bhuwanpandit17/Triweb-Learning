@@ -76,6 +76,24 @@ ec6 video: object key value;
 
 why not to encode base64 or some encryption which can decrypt
 bcrypt for encryption password
+how to verify the password for login
+
+1: why we use JWT and what is secret?
+
+2: secret ko environment me rakh sakte hain?
+=======================================
+-break code -> divided user and auth routes
+-authentication and authorization
+-middleware add in .post or .get() methods on routers before forwarding request to controller
+-promise link
+
+next() -- in middleware
+middleware -- routes --->>middlewareY>>> controller
+middlewareY ---->> authentication :: JWT
+-- how to send token jwt from postman (or with request) in authorization
+-- how to fetch it.
+-- how to decode it 
+-- how to apply authorization
 
 
 
