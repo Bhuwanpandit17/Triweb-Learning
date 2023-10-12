@@ -95,6 +95,16 @@ middlewareY ---->> authentication :: JWT
 -- how to decode it 
 -- how to apply authorization
 
+-> error TS2329: Propely 'userId' doesnot exit on type (global decleration)
+
+=========================================================
+
+1. interface mergin
+
+2. class- inheritance
+
+3. error handling in typescript
+
 
 
 

@@ -1,6 +1,7 @@
 // Send data to / form database through model
 import { Request, Response, NextFunction } from "express";
 import User from "../models/user";
+import projectError from "../helper/error";
 
 interface ReturnResponse {
   status: "success" | "error";
@@ -9,15 +10,15 @@ interface ReturnResponse {
 }
 
 // Get user
-const getUser = async (req: Request, res: Response) => {
+const getUser = async (req: Request, res: Response, next: NextFunction) => {
   let resp: ReturnResponse;
-  console.log(req.userId);
+  //console.log(req.userId);
 
   try {
     const userId = req.params.userId;
-    if(req.userId !=req.params.userId){
-      const err = new Error ("You are not authorized")
-      //err.statusCode
+    if (req.userId != req.params.userId) {
+      const err = new projectError("You are not authorized");
+      err.statusCode = 401;
       throw err;
     }
 
@@ -30,23 +31,24 @@ const getUser = async (req: Request, res: Response) => {
       res.send(resp);
     }
   } catch (error) {
-    resp = { status: "error", message: "Something went wrong", data: {} };
-    res.status(500).send(resp);
+    next(error);
   }
 };
 
 //Put
 
-const updateUser = async (req: Request, res: Response) => {
+const updateUser = async (req: Request, res: Response, next: NextFunction) => {
   let resp: ReturnResponse;
+  //console.log(req.userId);
   try {
     if (req.userId != req.body._id) {
-      const err = new Error("You are not authorized");
-      //err.statusCode
+      const err = new projectError("You are not authorized");
+      err.statusCode = 401;
       throw err;
     }
 
     const userId = req.body._id;
+    console.log(userId);
     const user = await User.findById(userId, { name: 1 });
     //console.log(user);
     if (!user) {
@@ -63,9 +65,7 @@ const updateUser = async (req: Request, res: Response) => {
       res.send(resp);
     }
   } catch (error) {
-    console.log(error);
-    resp = { status: "error", message: "Something went wrong", data: {} };
-    res.status(500).send(resp);
+    next(error);
   }
 };
 

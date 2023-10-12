@@ -11,12 +11,12 @@ const router = express.Router();
 // user should be authorize
 //Get /user/:userId
 
-router.get('/:userId',isAuthenticated,getUser)
+router.get('/:userId', isAuthenticated, getUser)
 
 
 //Put /user/
 
-router.put('/',updateUser);
+router.put("/", isAuthenticated, updateUser);
 
 
 

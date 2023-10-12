@@ -3,6 +3,8 @@ import { Request, Response, NextFunction } from "express";
 import User from "../models/user";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import projectError from "../helper/error";
+import {validationResult} from 'express-validator';
 
 interface ReturnResponse {
   status: "success" | "error";
@@ -11,10 +13,22 @@ interface ReturnResponse {
 }
 
 //Post
-const registerUser = async (req: Request, res: Response) => {
+const registerUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   let resp: ReturnResponse;
 
   try {
+    //validation
+    const validationError = validationResult(req);
+    if(!validationError.isEmpty()){
+      const err = new projectError("Validation failed!");
+      err.statusCode = 422;
+      err.data = validationError.array()
+      throw err;
+    }
     const email = req.body.email;
     const name = req.body.name;
     let password = await bcrypt.hash(req.body.password, 12);
@@ -31,35 +45,33 @@ const registerUser = async (req: Request, res: Response) => {
         message: "Registration done",
         data: { userId: result._id },
       };
-      res.send(resp);
     }
   } catch (error) {
-    resp = { status: "error", message: "Something went wrong", data: {} };
-    res.status(500).send(resp);
+    next(error);
   }
 };
 
 //Login module
-const loginUser = async (req: Request, res: Response) => {
+const loginUser = async (req: Request, res: Response, next: NextFunction) => {
   let resp: ReturnResponse;
   try {
     const email = req.body.email;
     //Find user with email
     const user = await User.findOne({ email });
-    // if(!user){
-    //      resp = { status: "error", message: "No email found", data: {} };
-    //      res.send(resp);
-    // }else{
-    //     resp = { status: "success", message: "user email found", data: { user: user } };
-    //     res.send(resp);
-    // }
-    //Verify password using bcrypt
+    if (!user) {
+      const err = new projectError("No user exit");
+      err.statusCode = 401;
+      throw err;
+    }
+
     const password = req.body.password;
 
     if (!user) {
-      resp = { status: "error", message: "User doesnot match", data: {} };
-      res.status(401).send(resp);
+      const err = new projectError("User is not found");
+      err.statusCode = 401;
+      throw err;
     } else {
+      //Verify password using bcrypt
       const status = await bcrypt.compare(password, user.password);
       //then  decide
       if (status) {
@@ -75,19 +87,25 @@ const loginUser = async (req: Request, res: Response) => {
         };
         // res.send(resp);
       } else {
-        resp = { status: "error", message: "password doesnot match", data: {} };
+        const err = new projectError("Password doesnot match");
+        err.statusCode = 401;
+        throw err;
       }
       res.send(resp);
     }
   } catch (error) {
-    console.log(error);
-    resp = { status: "error", message: "Something went wrong", data: {} };
-    res.status(500).send(resp);
+    next(error);
   }
 };
 
 
+const isUserExist = async (email:String) => {
+  const user =  await User.findOne({email});
 
+  if(!user){
+    return false;
+  }
+  return true;
+}
 
-
-export { registerUser,loginUser };
+export { registerUser, loginUser , isUserExist};
