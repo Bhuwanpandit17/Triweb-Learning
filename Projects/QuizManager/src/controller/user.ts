@@ -1,7 +1,7 @@
 // Send data to / form database through model
 import { Request, Response, NextFunction } from "express";
 import User from "../models/user";
-import projectError from "../helper/error";
+import ProjectError from "../helper/error";
 
 interface ReturnResponse {
   status: "success" | "error";
@@ -17,7 +17,7 @@ const getUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.params.userId;
     if (req.userId != req.params.userId) {
-      const err = new projectError("You are not authorized");
+      const err = new ProjectError("You are not authorized");
       err.statusCode = 401;
       throw err;
     }
@@ -42,13 +42,13 @@ const updateUser = async (req: Request, res: Response, next: NextFunction) => {
   //console.log(req.userId);
   try {
     if (req.userId != req.body._id) {
-      const err = new projectError("You are not authorized");
+      const err = new ProjectError("You are not authorized");
       err.statusCode = 401;
       throw err;
     }
 
     const userId = req.body._id;
-    console.log(userId);
+    //console.log(userId);
     const user = await User.findById(userId, { name: 1 });
     //console.log(user);
     if (!user) {

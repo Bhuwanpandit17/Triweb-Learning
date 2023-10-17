@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import User from "../models/user";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import projectError from "../helper/error";
+import ProjectError from "../helper/error";
 import {validationResult} from 'express-validator';
 
 interface ReturnResponse {
@@ -24,7 +24,7 @@ const registerUser = async (
     //validation
     const validationError = validationResult(req);
     if(!validationError.isEmpty()){
-      const err = new projectError("Validation failed!");
+      const err = new ProjectError("Validation failed!");
       err.statusCode = 422;
       err.data = validationError.array()
       throw err;
@@ -45,6 +45,8 @@ const registerUser = async (
         message: "Registration done",
         data: { userId: result._id },
       };
+      res.send(resp);
+
     }
   } catch (error) {
     next(error);
@@ -59,7 +61,7 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     //Find user with email
     const user = await User.findOne({ email });
     if (!user) {
-      const err = new projectError("No user exit");
+      const err = new ProjectError("No user exit");
       err.statusCode = 401;
       throw err;
     }
@@ -67,7 +69,7 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     const password = req.body.password;
 
     if (!user) {
-      const err = new projectError("User is not found");
+      const err = new ProjectError("User is not found");
       err.statusCode = 401;
       throw err;
     } else {
@@ -85,9 +87,9 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
           message: "password  match",
           data: { token },
         };
-        // res.send(resp);
+        //resp.send(resp);
       } else {
-        const err = new projectError("Password doesnot match");
+        const err = new ProjectError("Password doesnot match");
         err.statusCode = 401;
         throw err;
       }

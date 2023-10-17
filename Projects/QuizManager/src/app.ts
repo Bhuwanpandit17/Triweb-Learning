@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 import { Request, Response, NextFunction } from "express";
 import userRoute from './routes/user';
 import authenticationRoute from './routes/authentication';
-import projectError from './helper/error';
-
+import ProjectError from './helper/error';
+import quizRoute from './routes/quiz';
 
 //userRoute
 const app = express();
@@ -12,7 +12,7 @@ const app = express();
 interface ReturnResponse {
   status: "success" | "error";
   message: string;
-  data: {};
+  data: {} | [];
 }
 
 const connectionString = process.env.CONNECTION_STRING || "";
@@ -40,7 +40,10 @@ app.use('/user',userRoute);
 //Redirect /user to userRoute
 app.use('/authentication',authenticationRoute);
 
-app.use("",(err:projectError, req: Request, res: Response, next: NextFunction)=>{
+//Redirect / quiz 
+app.use('/quiz',quizRoute);
+
+app.use((err:ProjectError, req: Request, res: Response, next: NextFunction)=>{
     //send email
     //Logger
     let message:string;
@@ -57,12 +60,26 @@ app.use("",(err:projectError, req: Request, res: Response, next: NextFunction)=>
     if(!!err.data){
         resp.data = err.data;
     }
-    console.log(err);
+    console.log(err.statusCode, err.message);
     res.status(statusCode).send(resp);
   })
 
 
-mongoose.connect(connectionString)
-.then((success)=> app.listen(process.env.PORT))
-.catch((error)=>console.log(error))
+
+  //Server connection
+
+  const serverRun = async ()=>{
+    try {
+        await mongoose.connect(connectionString);
+        app.listen(process.env.PORT,()=>{
+            console.log("Server is Connected");
+        });
+
+    } catch (error) {
+         console.error("Error connecting to the server:", error);
+        }
+    }
+
+    serverRun();
+
 

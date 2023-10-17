@@ -13,16 +13,15 @@ router.post( "/",
   [
     body('name')
       .trim()
-      .not()
-      .isEmpty()
+      .notEmpty()
       .isLength({ min: 3 })
       .withMessage("please enter a valid name, minimum 3 character long"),
     body('email')
       .trim()
       .isEmail()
-      .custom(async (email:string) => {
-        return isUserExist(email)
-          .then((status) => {
+      .custom((emailId:String) => {
+        return isUserExist(emailId)
+          .then((status:Boolean) => {
             if (status) {
               return Promise.reject("User already exit !");
             }
@@ -38,7 +37,7 @@ router.post( "/",
       .withMessage("Enter at least 5 charcter long password"),
     body("confirm_password")
       .trim()
-      .custom((value, { req }) => {
+      .custom((value:String, { req }) => {
         if (value != req.body.password) {
           return Promise.reject("Password mismatch");
         }
