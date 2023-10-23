@@ -1,0 +1,45 @@
+/* AddProductForm.module.css */
+.AddProductForm {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 80px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.AddProductForm form {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddProductForm .formGroup {
+    margin: 10px 0;
+}
+
+.AddProductForm label {
+    font-weight: bold;
+}
+
+.AddProductForm input[type="text"],
+.AddProductForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.AddProductForm button {
+    background-color: #007bff;
+    color: #fff;
+    margin: 0 0 0 10rem;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Hover effect for the button */
+.AddProductForm button:hover {
+    background-color: #0056b3;
+}
