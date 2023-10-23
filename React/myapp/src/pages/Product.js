@@ -1,3 +1,4 @@
+import ProductList from "../components/product/ProductList";
 function Product() {
   let products = [
     {
@@ -17,15 +18,39 @@ function Product() {
       product_name: "Kanchanpur tour",
       description: "Its was nice tour",
       price: "2000000",
+    },
+      {
+      id: "p4",
+      product_name: "Kanchanpur tour",
+      description: "Its was nice tour",
+      price: "2000000",
+    },
+      {
+      id: "p5",
+      product_name: "Kanchanpur tour",
+      description: "Its was nice tour",
+      price: "2000000",
+    },
+      {
+      id: "p6",
+      product_name: "Kanchanpur tour",
+      description: "Its was nice tour",
+      price: "2000000",
+    },  {
+      id: "p7",
+      product_name: "Kanchanpur tour",
+      description: "Its was nice tour",
+      price: "2000000",
     }
+
+
   ];
   return <div>
     <ul>
-        {products.map((item)=>{
-            return <div>
-                <li key={item.id}> {item.product_name}</li>
-            </div>
-        })}
+       
+            <ProductList product={products} />
+         
+       
     </ul>
   </div>
 }
