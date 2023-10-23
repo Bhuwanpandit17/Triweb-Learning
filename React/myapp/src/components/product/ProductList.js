@@ -4,7 +4,7 @@ function ProductList(props)
   return (
     <ul>
       {props.product.map((item) => {
-       return <ProductItem item ={item} />;
+       return <ProductItem key = {item.id} id = {item.id} item ={item} />;
       })}
      
     </ul>
