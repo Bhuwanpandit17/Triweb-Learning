@@ -1,61 +1,29 @@
 import ProductList from "../components/product/ProductList";
+import { useState, useEffect } from "react";
+
 function Product() {
-  let products = [
-    {
-      id: "p1",
-      product_name: "city tour",
-      description: "Its was nice tour",
-      price: "20000",
-    },
-    {
-      id: "p2",
-      product_name: "Kathmandu tour",
-      description: "Its was nice tour",
-      price: "200000",
-    }
-    // {
-    //   id: "p3",
-    //   product_name: "Kanchanpur tour",
-    //   description: "Its was nice tour",
-    //   price: "2000000",
-    // },
-    //   {
-    //   id: "p4",
-    //   product_name: "Kanchanpur tour",
-    //   description: "Its was nice tour",
-    //   price: "2000000",
-    // },
-    //   {
-    //   id: "p5",
-    //   product_name: "Kanchanpur tour",
-    //   description: "Its was nice tour",
-    //   price: "2000000",
-    // },
-    //   {
-    //   id: "p6",
-    //   product_name: "Kanchanpur tour",
-    //   description: "Its was nice tour",
-    //   price: "2000000",
-    // },  {
-    //   id: "p7",
-    //   product_name: "Kanchanpur tour",
-    //   description: "Its was nice tour",
-    //   price: "2000000",
-    // }
+  let [products, setProducts] = useState([]);
+  let [isDataFetching, setIsDataFetching] = useState(true);
 
+  useEffect(() => {
+    setIsDataFetching(true);
+    fetch("http://127.0.0.1:3004/product")
+      .then((response) => response.json())
+      .then((responseData) => {
+        setIsDataFetching(false);
+        setProducts(responseData.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-  ];
-  return <div>
-    
-       
-            <ProductList product={products} />
-  </div>
+  if (isDataFetching) {
+    return "Data is loading";
+  }
+  return (
+    <div>
+      <ProductList product={products} />
+    </div>
+  );
 }
-
-   
-  
-
-  
-
 
 export default Product;
